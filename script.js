@@ -9,8 +9,8 @@ class Color {
 }
 
 function start() {
-    rows = Math.floor((window.innerHeight - 100) / 50);
-    cols = Math.floor((window.innerWidth - 25) / 50);
+    rows = Math.floor((window.innerHeight) / 50);
+    cols = Math.floor((container.offsetWidth) / 50);
     console.log(window.innerWidth);
     console.log(cols);
     colors = getColors(5);
@@ -21,16 +21,19 @@ function generate(rows, cols, colors) {
     for (let row = 0; row < rows; row++) {
         currentRow = document.createElement("div");
         currentRow.setAttribute("class", "row");
+        //currentRow.setAttribute("height", "50");
         for (let col = 0; col < cols; col++) {
             currentCellSpan = document.createElement("span");
             currentCellSpan.setAttribute("class", "cell");
+            currentCellSpan.setAttribute("height", "50");
+            currentCellSpan.setAttribute("width", "50");
 
             currentCellCanvas = document.createElement("canvas");
             currentCellCanvas.textContent = ":(";
             currentCellCanvas.setAttribute("class", "cell__canvas");
             currentCellCanvas.setAttribute("width", "50");
             currentCellCanvas.setAttribute("height", "50");
-
+            
             currentCellSpan.appendChild(currentCellCanvas);
             currentRow.appendChild(currentCellSpan);
 
